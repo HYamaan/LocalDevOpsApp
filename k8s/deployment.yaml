@@ -5,7 +5,7 @@ metadata:
   labels:
     app: local-devops-app
 spec:
-  replicas: 4  # Kurumsal Dokunuş: Yükü dağıtmak için 2 kopya çalıştıracağız!
+  replicas: 20  # Kurumsal Dokunuş: Yükü dağıtmak için 2 kopya çalıştıracağız!
   selector:
     matchLabels:
       app: local-devops-app
