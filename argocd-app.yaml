@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: local-devops-app-argo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    # SENİN GITHUB ADRESİN (Bunu mutlaka değiştir!)
+    repoURL: https://github.com/hyamaan/LocalDevOpsApp.git
+    targetRevision: HEAD
+    path: k8s # Hangi klasöre bakacak?
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default # Uygulama nereye kurulacak?
+  syncPolicy:
+    automated: # Otopilot Ayarları
+      prune: true    # Git'ten silineni Cluster'dan da sil
+      selfHeal: true # Biri elle bozarsa otomatik düzelt
