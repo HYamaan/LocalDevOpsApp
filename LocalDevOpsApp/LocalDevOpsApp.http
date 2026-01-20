@@ -1,0 +1,6 @@
+@LocalDevOpsApp_HostAddress = http://localhost:5029
+
+GET {{LocalDevOpsApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
