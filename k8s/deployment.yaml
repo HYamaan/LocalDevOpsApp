@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-devops-app-deployment
+  labels:
+    app: local-devops-app
+spec:
+  replicas: 2  # Kurumsal Dokunuş: Yükü dağıtmak için 2 kopya çalıştıracağız!
+  selector:
+    matchLabels:
+      app: local-devops-app
+  template:
+    metadata:
+      labels:
+        app: local-devops-app
+    spec:
+      containers:
+        - name: local-devops-app
+          # AŞAĞIDAKİ ADRESİ KENDİNE GÖRE DÜZENLE!
+          # image: ghcr.io/SENIN_GITHUB_ADIN/localdevopsapp:latest
+          image: ghcr.io/hyamaan/localdevopsapp:latest
+          ports:
+            - containerPort: 8080
+          resources: # Kurumsal Dokunuş: Kaynak sınırlarını belirliyoruz (Best Practice)
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
