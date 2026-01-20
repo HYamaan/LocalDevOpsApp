@@ -8,6 +8,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 
+
 app.UseHttpsRedirection();
 
 var summaries = new[]
